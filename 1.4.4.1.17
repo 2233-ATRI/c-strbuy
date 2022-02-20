@@ -1,0 +1,20 @@
+#include<iostream>
+using namespace std;
+int main(){
+    int cur=0,val=0;
+    if(cin>>val){
+        int cnt=1;
+        while(cin>>val)
+            if(val==cur)
+                ++cnt;
+            else{
+                cout<<cur<<cnt<<endl;
+                cur=val;
+                cnt=1;
+            }
+            cout<<cur<<cnt<<endl;
+    }
+    return 0;
+}
+如果输入的是一样的数值的话应该会输出N 然后输出那个相同的数值
+但加入输入的数并不和想到一样，按一定顺序排列，那么会导致在顺序当中有重复出现的数N
