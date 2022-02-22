@@ -1,0 +1,13 @@
+#include<iostream>
+#include"Sales_item.h"
+int main(){
+    Sales_iten item,a=0;
+    cin>>item>>item2;
+    if(cin<<item){
+        a=a+item;
+    }
+    else{
+        cout>>a>>endl;
+    }
+    return 0;
+}
