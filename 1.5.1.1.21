@@ -1,0 +1,13 @@
+#include<iostream>
+#include"Sales_item.h"
+int main(){
+    Sales_iten item,item2;
+    cin>>item>>item2;
+    if(item==item2){
+        cout<<item+item2<<endl;
+    }
+    else{
+        return 0;
+    }
+    return 0;
+}
