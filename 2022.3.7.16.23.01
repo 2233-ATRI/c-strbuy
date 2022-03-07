@@ -1,0 +1,18 @@
+class Solution {
+public:
+    string convertToBase7(int num) {
+        if (num < 0) return "-"+convert(-num);
+        else if (num == 0) return "0";
+        return convert(num);
+    }
+
+    string convert(int num) {
+        string ans = "";
+        while(num){
+            ans += to_string(num%7);
+            num /= 7;
+        }
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};
