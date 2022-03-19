@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std;
+int k,m,f;
+int main()
+{
+	cin>>k;
+	m=k;
+	f=1;
+	while(f)
+	{
+		int w=0;//出列之人的位置 
+		for(int i=0;i<k;i++)
+		{
+			w=(w+m)%(2*k-i);//下一次出列之人 
+			if(w<k)//出列之人位于前k位说明m不合适，进行下一轮 
+				break;
+			if(i==k-1)
+				f=0;
+		}
+		m++;
+	}
+	cout<<m;
+	return 0;
+}
