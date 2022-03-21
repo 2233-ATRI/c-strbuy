@@ -1,0 +1,29 @@
+#include<iostream>//求a的b次方
+using namespace std;
+void dectobin(int b)
+{
+    int sum = 0;
+    int y, x = 1; // y表示余数，x为叠加的系数
+    while (b != 0)
+    {
+        y = b % 2;
+        sum += x * y;
+        x *= 10;
+        b /= 2;
+    }
+    b=sum;
+}
+int main(){
+    int a,b;
+    double n=1;
+    cin>>a>>b;
+    dectobin(b);
+    while(b>0){
+        if(b&1){
+            n *=a;
+        }
+        a *=a;
+        b>>=1;
+    }
+    return n;
+}
