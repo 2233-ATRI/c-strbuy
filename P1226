@@ -1,0 +1,18 @@
+#include<iostream>
+using namespace std;
+typedef long long ll;
+int main()
+{
+	ll b,p,k,ans;
+	cin>>b>>p>>k;
+	ans=1;
+	cout<<b<<"^"<<p<<" mod "<<k<<"=";
+	while(p > 0){
+		if(p & 1)//b的二进制末尾为1，即奇数
+			ans = ans * b % k;
+		b = b * b % k;
+		p >>= 1;//将b的二进制向右移1位数
+	}
+	cout<<ans%k;
+	return 0;
+}
