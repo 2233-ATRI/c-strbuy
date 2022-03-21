@@ -1,0 +1,47 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+const int N=500;
+
+int res[N],a[N];
+int p;
+
+void mul(int a[],int b[],int c[])
+{
+    static int tmp[N];
+    memset(tmp,0,sizeof tmp);
+    for(int i=0;i<500;i++)
+        for(int j=0;j<500;j++)
+            if(i+j<500)
+                tmp[i+j]+=a[i]*b[j];
+    for(int i=0,t=0;i<500;i++)
+    {
+        t+=tmp[i];
+        c[i]=t%10;
+        t/=10;
+    }
+}
+void qmi()
+{
+    a[0]=2,res[0]=1;
+    while(p)
+    {
+        if(p&1) mul(a,res,res);
+        mul(a,a,a);
+        p>>=1;
+    }
+    res[0]--;
+    for(int i=499,j=0;j<10;j++)
+    {
+        for(int k=0;k<50;k++,i--) cout<<res[i];
+        cout<<endl;
+    }
+}
+int main()
+{
+    cin>>p;
+    cout<<int(p*log10(2))+1<<endl;
+    qmi();
+    
+    return 0;
+}
