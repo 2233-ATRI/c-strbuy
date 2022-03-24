@@ -1,0 +1,60 @@
+#include<bits/stdc++.h>
+using namespace std;
+int n = 0;
+string A, B;
+string a[7], b[7];
+queue<string> s;
+queue<int> bs;
+map<string, int> m;
+
+int bfs()
+{
+	string S;
+	while (!s.empty() && bs.front() <= 10 && s.front() != B)
+	{
+		if (m[s.front()] == 1)
+		{
+			s.pop();
+			bs.pop();
+			continue;
+		}
+		m[s.front()] = 1;
+		for (int i = 0; i < n; i++)
+		{
+			int temp = 0;
+			while ((temp=s.front().find(a[i], temp))!=A.npos)//查出所有字串
+			{
+				S = s.front();
+				S.replace(temp, a[i].size(), b[i]);
+				s.push(S);
+				bs.push(bs.front() + 1);
+				temp++;
+			}
+		}
+		s.pop();
+		bs.pop();
+	}
+	if (s.empty() || bs.front() > 10)
+		return -1;
+	else
+		return bs.front();
+}
+int main()
+{
+	cin >> A >> B;
+	while (cin >> a[n] >> b[n])
+		n++;
+	while (n == 0 && A != B)
+	{
+		cout << "NO ANSWER!";
+		return 0;
+	}
+	s.push(A);
+	bs.push(0);
+	int answer = bfs();
+	if (answer == -1)
+		cout << "NO ANSWER!";
+	else
+		cout << answer;
+	return 0;
+}
