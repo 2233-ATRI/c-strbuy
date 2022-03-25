@@ -1,0 +1,10 @@
+#include<iostream>
+#include"Sales_item.h"
+using namespace std;
+int main(){
+    int sum=0,value,units_sold=0;
+    Sales_item item;
+    string book("0-201-78345-X");
+    cout<<book;
+    return 0;
+}
