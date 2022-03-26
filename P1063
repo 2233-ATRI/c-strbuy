@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int n;
+int a[201];
+int f[201][201] = {0};
+int ans = 0;
+
+int main(){
+ cin>>n;
+ int i,j,k;
+ for(i=1;i<=n;i++){
+    cin>>a[i];
+    a[i+n] = a[i];
+ } 
+ for(i=3;i<=n+1;i++){// 每次计算几个数 
+    for(j=1;j<=2*n-i+1;j++){// 从第 j 个数开始 
+       for(k=j+1;k<j+i-1;k++){// j k j+i-1  
+          int m = f[j][k] + f[k][j+i-1];
+          f[j][j+i-1] = max(m+a[j]*a[k]*a[j+i-1],f[j][j+i-1]);
+       }
+    }
+ }
+ for(i=1;i<=n;i++){
+    ans = max(ans,f[i][i+n]);
+ }
+ cout<<ans;
+ return 0;
+} 
+
+
