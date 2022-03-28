@@ -1,0 +1,11 @@
+#include<iostream>
+using namespace std;
+int main(){
+    int i = 42, *p = &i;
+
+decltype((p)) temp = p;
+
+
+    cout<<sizeof(p)<<"   "<<sizeof(temp)<<"    "<<temp;
+    return 0;
+}
