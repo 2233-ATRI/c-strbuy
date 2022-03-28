@@ -1,0 +1,10 @@
+#include<iostream>
+using namespace std;
+int main(){
+    int a=3;
+    int b=4;
+    decltype(a) c=a;
+    decltype(a+b) d=a;
+    cout<<sizeof(c)<<sizeof(d)<<c<<d;
+    return 0;
+}
