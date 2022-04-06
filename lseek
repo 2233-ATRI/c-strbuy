@@ -1,0 +1,20 @@
+三、lseek()
+1.当前文件偏移量（current file offset）：这里简称为cfo，它通常是个非负整数，用于表明文件当前位置到文件开始处的字节数。读写操作通常开始于CFO，并且使CFO增大，增量为读写的字节数。文件被打开时，CFO会被初始化为0.
+
+2.lseek函数就是用来改变cfo的
+
+3.头文件：unistd.h+sys/types.h
+
+4.原型：off_t lseek(int fd,off_t offset,int whence)
+
+5.参数解析：
+
+fd表示要操作的文件描述符
+offset是相对于whence（基准）的偏移量
+whence可以是SEEK_SET（文件指针开始，值为0），SEEK_CUR（文件指针当前位置，值为1），SEEK_END（文件指针尾，值为2）
+6.返回值：新的CFO（成功）/-1（失败）
+
+7.新的CFO怎么算？根据whence取值不同来算
+1）若whence为0，则新CFO=offset
+2）若whence为1，则新CFO=旧CFO+offset，这个新CFO可以为正可以为负
+3）若whence为2，则新CFO=文件长度+offset，这个新CFO可以为正可以为负
