@@ -1,0 +1,17 @@
+#include<iostream>
+#include<string>
+using namespace std;
+int main(){
+    string line,line2=0;
+    while(getline(cin,line)){
+        line2=line+" "+line2;
+    }
+    cout<<line2<<endl;
+    return 0;
+}
+/*     string line,line2=0;
+    while(getline(cin,line)){
+        line2=line+line2;
+    }
+    cout<<line2<<endl;
+    return 0;
