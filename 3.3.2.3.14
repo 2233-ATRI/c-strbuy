@@ -1,0 +1,13 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+int main()
+{	
+	vector<int> My_vector;
+	int iint;
+	while (cin >> iint)
+	{
+		My_vector.push_back(iint);
+	}
+	return 0;
+}
