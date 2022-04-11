@@ -1,0 +1,15 @@
+#include<iostream>
+#include<string>
+#include<cctype>
+#include<vector>
+using namespace std;
+int main(){
+    vector<int> scores(11,0);
+    int a;
+    while(cin>>a){
+        if(a<=100)
+            ++scores[a/10];
+    }
+    cout<<scores<<endl;
+    return 0;
+    }
