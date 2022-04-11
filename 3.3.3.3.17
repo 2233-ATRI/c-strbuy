@@ -1,0 +1,18 @@
+#include<iostream>
+#include<string>
+#include<cctype>
+#include<vector>
+using namespace std;
+int main(){
+    vector<string> v1;
+    for(auto a:v1){
+        v1.push_back(a);
+    }
+    for(auto &a:v1){
+        for(auto &c:a){
+            c=toupper(c);
+            cout<<c<<endl;
+        }
+    }
+    return 0;
+    }
