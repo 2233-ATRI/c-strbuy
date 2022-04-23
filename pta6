@@ -1,0 +1,27 @@
+#include<stdio.h>
+int main()
+{
+int N,c=0,s=0;
+int gong,mu,xiao;
+scanf("%d",&N);
+for(gong=0;gong<=N;gong++)
+{
+	for(mu=0;mu<=N-gong;mu++)
+	{		
+		for(xiao=0;xiao<=N-gong-mu;xiao++)
+		{
+			if(gong+mu+xiao==N&&gong*5+mu*3+xiao/3==N&&xiao%3==0)
+			{
+			c++;
+			s+=gong;
+			}
+		}
+	}
+}
+if(c==0){
+printf("0 -1");
+}
+else
+printf("%d %d",c,s);
+return 0;
+}
